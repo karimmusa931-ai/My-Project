@@ -1,3 +1,9 @@
+"""
+Smart Study Planner - A console-based study session tracker
+Helps students log, review, and analyse study sessions across subjects over a semester
+Data persists across sessions via file storage
+"""
+
 import json
 from datetime import datetime
 
@@ -45,11 +51,11 @@ def classify_session(duration):
     Args:
         duration (int): Duration of the session in minutes
     Returns:
-        str: One of "Short" (<30 min), "Medium" (60 min), or "Long" (>90 min)
+        str: One of "Short" (<30 min), "Medium" (30-90 min), or "Long" (>90 min)
     """
     if duration < 30:
         return "Short"
-    elif duration <= 60:
+    elif duration <= 90:
         return "Medium"
     else:
         return "Long"
@@ -66,7 +72,7 @@ def add_session():
     print("="*60)
     
     # Get subject
-    subject = input("Subject name (English, Arabic, France, Chemist, Physics,  Mathematics, History, Geographic): ").strip()
+    subject = input("Subject name (English, Arabic, ICT, Mathematics, History): ").strip()
     if not subject:
         print("✗ Subject name cannot be empty.")
         return
@@ -78,7 +84,7 @@ def add_session():
         return
     
     # Get date/day label
-    date_label = input("Date or day label (Monday 26, Tuesday 26, Wednesday 26, Thursday 26, Friday 26, Saturday 26, Sunday 26gigg                          ): ").strip()
+    date_label = input("Date or day label ( Monday,26, Tuesday 26, Wednesday 26, Thursday 26, Friday 26 ): ").strip()
     if not date_label:
         print("✗ Date/day label cannot be empty.")
         return
