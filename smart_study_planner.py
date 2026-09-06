@@ -1,8 +1,3 @@
-"""
-Smart Study Planner - A console-based study session tracker
-Helps students log, review, and analyse study sessions across subjects over a semester
-Data persists across sessions via file storage
-"""
 
 import json
 from datetime import datetime
